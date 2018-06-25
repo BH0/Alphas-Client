@@ -2,12 +2,15 @@ import React, { Component } from 'react';
 import './App.css'; 
 
 import Alphas from "./Components/Alphas"; 
+import AlphaModal from "./Components/AlphaModal"; 
 
 class App extends Component {
   constructor() { 
     super(); 
     this.state = { 
-      alphas: [] 
+      alphas: [], 
+      alphaGotten: {}, 
+      showAlpha: false
     }
   }  
 
@@ -42,15 +45,16 @@ class App extends Component {
       return; 
     } 
     response.json().then(data => {
-        console.log(data); 
-        alert(JSON.stringify(data)); 
-        // render precise alpha 
+        this.setState({ alphaGotten: data, showAlpha: true }); 
       }); 
     }).catch(err => {
       console.log('Fetch Error :-S', err);
     }); 
   } 
   
+  closeModal() { // closes the alpha modal which is opened when the "getAlpha" method is invoked 
+    this.setState({showAlpha: false}) 
+  }
   render() {
     return (
       <div className="App">
@@ -59,6 +63,7 @@ class App extends Component {
           <input type="text" ref="id" placeholder="search for alpha using their ID" /> 
           <input type="submit" value="Get Alpha" /> 
         </form> 
+        <AlphaModal active={this.state.showAlpha} alpha={this.state.alphaGotten} closeModal={this.closeModal.bind(this)} /> 
         <hr /> 
         <Alphas alphas={this.state.alphas} /> 
       </div>

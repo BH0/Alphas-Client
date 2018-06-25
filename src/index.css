@@ -25,4 +25,8 @@ input {
 .Alpha em { 
   font-weight: bold; 
   font-size: 0.6em; 
-}
+} 
+
+.alpha-modal h3 { 
+  padding-top: 2em; 
+} 
