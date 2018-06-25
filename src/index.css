@@ -1,0 +1,28 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.App { 
+  margin: auto; 
+  text-align: center; 
+  background-color: cyan; 
+  color: green; 
+  border: 2px solid blue; 
+}
+
+input { 
+  text-align: center; 
+  width: 20em; 
+} 
+
+.Alpha { 
+  border: 2px solid green; 
+  margin: 2em 2em 2em 2em; 
+} 
+
+.Alpha em { 
+  font-weight: bold; 
+  font-size: 0.6em; 
+}
